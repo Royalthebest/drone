@@ -5,7 +5,7 @@ img = cv2.imread('test.jpg')
 prod = img
 # for i in prod:
 #     for j in i:
-#         if(j[0]>70 and j[0]>j[1] and j[0]>j[2]):
+#         if(j[0]*1>j[1]*0.5+j[2]*0.5):
 #             pass
 #         else:
 #             qq = int((j[0]/3+j[1]/3+j[2]/3))
@@ -14,10 +14,13 @@ prod = img
 #             j[2] = qq
 
 
-# (j[1]*.65<j[0]*.5+j[2]*.5 or j[1]*.56>j[0]*.5+j[2]*.5)
 for i in prod:
     for j in i:
-        if(j[2]*0.3+j[1]*0.3>j[0] and not(j[2]>j[0] and j[2]>j[1]) and not (j[1]*.5>j[0]*.5+j[2]*.5)or (j[0]>70 and j[0]>j[1] and j[0]>j[2])):
+        if(j[0]*1>j[1]*0.5+j[2]*0.5):
+            pass
+        elif(j[1]>j[2] and j[1]-j[2]<20):
+            pass
+        elif(j[2]>=j[1] and j[2]-j[1]<20):
             pass
         else:
             qq = int((j[0]/3+j[1]/3+j[2]/3))
